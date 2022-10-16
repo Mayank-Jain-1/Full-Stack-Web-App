@@ -14,13 +14,11 @@ export const Form = () => {
   const handleInputChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    console.log(value);
     setUserInformation({...userInformation, [name]: value})
   }
 
   const handleSubmit = () => {
-    const record = [...userInformation]
-    console.log(record);
+    console.log(userInformation);
   }
 
   return (
@@ -55,7 +53,7 @@ export const Form = () => {
           <input onChange={handleInputChange} autoComplete="off" type="gender" name= "gender" value = {userInformation.gender}/>
         </div>
 
-        <button type='' onClick={handleSubmit}>Submit</button>
+        <button onClick={handleSubmit}>Submit</button>
       </form>
   )
 }
