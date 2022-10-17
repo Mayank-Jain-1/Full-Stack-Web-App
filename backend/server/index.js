@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 
 dotenv.config({path: './config.env'})
 // const port = process.env.PORT;
-const port = 3000;
+const port = 8000;
  
 
 require('./database/conn.js');
@@ -15,8 +15,9 @@ const middleware = (req, res, next) => {
   next();
 }
 
-app.use(express.json());
+app.use(express.json());``
 app.use(require('./router/auth'));
 
 
 app.listen(port);
+console.log(`Server running on http://localhost:${port}`)

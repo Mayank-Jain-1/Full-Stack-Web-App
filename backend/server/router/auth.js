@@ -16,29 +16,52 @@ router.get('/welcome', (req,res) => {
   res.send('welcome');
 });
 
-router.post('/register', (req,res) => {
 
+router.post('/signin' , async (req,res) => {
+  try {
+    const {email, password} = req.body;
+    
+    if (!email || !password) {
+      return res.status(400).json({error: "Please enter the email/password" })
+    }
+
+    const userLogin = await User.findOne({ email:email });
+    userLogin ? res.json({message: "user login successful"})
+              : res.json({message: "user doesnt exitst"});
+
+  } catch (err) {
+    console.log(err);
+  }
+})
+
+router.post('/register', async (req,res) => {
+  console.log(1);
   const {fullname, email, password, cpassword, dob, gender } = req.body;
-
+  
   if(!fullname  || !email || !password || !cpassword || !dob || !gender) {
-    return res.status(422).json({ error: "Plz fill all the fields properly" })
+    return res.status(422).json({data: req.body,  error: "Plz fill all the fields properly" })
+  }
+  console.log(2);
+  
+  try{
+    
+    const userExists = await User.findOne({email:email})
+    console.log(3);
+    
+    if (userExists) {
+      return res.status(422).json({error: "Email already exist"});
+    }else if (password !== cpassword){
+      return res.status(422).json({error: "Passwords are not matching"});
+    }
+    const user = new User({fullname, email, password, cpassword, dob, gender});
+    
+    await user.save(); 
+    return res.status(201).json({message: "user resistered successfuly"})
+
+  } catch (err) {
+    console.log(err);
   }
 
-  User.findOne({email:email})
-    .then((userExists) => {
-      if (userExists) {
-        return res.status(422).json({error: "Email already exist"});
-      }
-
-      const user = new User({fullname, email, password, cpassword, dob, gender});
-
-      user.save().then(() => {
-        res.status(201).json({message: "user resistered successfuly"});
-      }).catch((err) => {
-        res.status(500).json({error: "failed to register"})
-        console.log(err);
-      }); 
-  })
 
 })
 
