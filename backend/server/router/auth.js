@@ -39,6 +39,7 @@ router.post('/register', async (req,res) => {
   const {fullname, email, password, cpassword, dob, gender } = req.body;
   
   if(!fullname  || !email || !password || !cpassword || !dob || !gender) {
+    console.log(req.body);
     return res.status(422).json({data: req.body,  error: "Plz fill all the fields properly" })
   }
   console.log(2);
@@ -54,8 +55,9 @@ router.post('/register', async (req,res) => {
       return res.status(422).json({error: "Passwords are not matching"});
     }
     const user = new User({fullname, email, password, cpassword, dob, gender});
-    
-    await user.save(); 
+    console.log(4)
+    const saved = await user.save(); 
+    console.log(saved);
     return res.status(201).json({message: "user resistered successfuly"})
 
   } catch (err) {

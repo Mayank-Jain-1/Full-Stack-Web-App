@@ -4,7 +4,7 @@ import './Form.css'
 export const Form = () => {
 
   const [userInformation, setUserInformation] = useState({
-    fullName: '',
+    fullname: '',
     email: '',
     password: '',
     cpassword: '',
@@ -20,14 +20,14 @@ export const Form = () => {
 
   const postdata = async (e) => {
     e.preventDefault();
-    const {fullName, email, password, cpassword, dob, gender} = userInformation;
+    const {fullname, email, password, cpassword, dob, gender} = userInformation;
 
     const res = await fetch('/register',  {
       method: 'POST',
       headers: {
         "Content-Type" : "application/json"
       },
-      body: JSON.stringify({fullName, email, password, cpassword, dob, gender})
+      body: JSON.stringify({fullname, email, password, cpassword, dob, gender})
     });
     
     const data = await res.json();
@@ -55,7 +55,7 @@ export const Form = () => {
           <label htmlFor='name'>
             <i className='zmdi zmdi-account materials-icon-name'></i>
           </label>
-            <input onChange={handleInputChange} autoComplete="off" type="text" name= "fullName" value = {userInformation.fullName} placeholder= "Your full name"/>
+            <input onChange={handleInputChange} autoComplete="off" type="text" name= "fullname" value = {userInformation.fullname} placeholder= "Your full name"/>
         </div>
 
         <div className = "formElement">
