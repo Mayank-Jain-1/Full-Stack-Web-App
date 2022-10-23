@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const bcrypt = require("bcryptjs");
 
 require('../database/conn');
 const User = require('../models/userSchema');
@@ -24,7 +25,10 @@ router.post('/login' , async (req,res) => {
 
     const userLogin = await User.findOne({ email:email });
     if (userLogin) {
-      res.status(200).json({message: "user login successful", statusCode:res.statusCode});
+      if (await bcrypt.compare(password, userLogin.password)){
+        res.status(200).json({message: "user login successful", statusCode:res.statusCode});
+      }
+      res.status(401).json({message: "user login successful", statusCode:res.statusCode})
     }else{
       res.status(402).json({message: "user doesnt exitst", statusCode:res.statusCode});
     }
