@@ -30,9 +30,8 @@ export const Form = () => {
       body: JSON.stringify({fullname, email, password, cpassword, dob, gender})
     });
     
-    const data = await res.json();
-    console.log(data.status);
-    if(data.status > 400) {
+    const data = await res.json();       
+  if(data.statusCode !== 201) {
       window.alert("Registration Failed. Try again");
       console.log('Registration Failed. Try again');
     } else {

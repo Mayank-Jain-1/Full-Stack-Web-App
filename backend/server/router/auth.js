@@ -22,12 +22,12 @@ router.post('/signin' , async (req,res) => {
     const {email, password} = req.body;
     
     if (!email || !password) {
-      return res.status(400).json({error: "Please enter the email/password" })
+      return res.status(400).json({error: "Please enter the email/password" , statusCode:res.statusCode});
     }
 
     const userLogin = await User.findOne({ email:email });
-    userLogin ? res.json({message: "user login successful"})
-              : res.json({message: "user doesnt exitst"});
+    userLogin ? res.json({message: "user login successful", statusCode:res.statusCode})
+              : res.json({message: "user doesnt exitst", statusCode:res.statusCode});
 
   } catch (err) {
     console.log(err);
@@ -35,30 +35,24 @@ router.post('/signin' , async (req,res) => {
 })
 
 router.post('/register', async (req,res) => {
-  console.log(1);
   const {fullname, email, password, cpassword, dob, gender } = req.body;
   
   if(!fullname  || !email || !password || !cpassword || !dob || !gender) {
     console.log(req.body);
-    return res.status(422).json({data: req.body,  error: "Plz fill all the fields properly" })
+    return res.status(422).json({data: req.body,  error: "Plz fill all the fields properly", statusCode:res.statusCode})
   }
-  console.log(2);
   
   try{
     
     const userExists = await User.findOne({email:email})
-    console.log(3);
-    
     if (userExists) {
-      return res.status(422).json({error: "Email already exist"});
+      return res.status(422).json({error: "Email already exist", statusCode:res.statusCode});
     }else if (password !== cpassword){
-      return res.status(422).json({error: "Passwords are not matching"});
+      return res.status(422).json({error: "Passwords are not matching", statusCode:res.statusCode});
     }
     const user = new User({fullname, email, password, cpassword, dob, gender});
-    console.log(4)
     const saved = await user.save(); 
-    console.log(saved);
-    return res.status(201).json({message: "user resistered successfuly"})
+    return res.status(201).json({message: "user resistered successfuly", statusCode:res.statusCode})
 
   } catch (err) {
     console.log(err);
