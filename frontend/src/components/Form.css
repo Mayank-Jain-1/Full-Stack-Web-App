@@ -5,22 +5,21 @@
 #page{
   display: flex;
   justify-content: center;
+  margin-top: 200px;
 }
 
 #form-box {
-  /* background-color: aqua; */
   box-shadow: 0 3px 30px rgb(0 0 0 / 0.2);
-  margin-top: 15rem;
   display: flex;
-  width: 700px;
+  width: 750px;
   height: 550px;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
 img{
   height: 280px;
-  padding-right: 40px;
+  padding-left: 20px;
 }
 
 #form{

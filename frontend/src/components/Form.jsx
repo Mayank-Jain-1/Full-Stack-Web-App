@@ -1,7 +1,11 @@
 import React, {useState} from 'react'
 import './Form.css'
+import {useNavigate} from 'react-router-dom'
+
 
 export const Form = () => {
+
+  const navigate = useNavigate();
 
   const [userInformation, setUserInformation] = useState({
     fullname: '',
@@ -34,6 +38,7 @@ export const Form = () => {
   if(data.statusCode !== 201) {
       window.alert("Registration Failed. Try again");
       console.log('Registration Failed. Try again');
+      navigate('/login');
     } else {
       window.alert("Registration Successful");
       console.log("Registration Successful");
@@ -48,7 +53,7 @@ export const Form = () => {
         <img src="https://media.istockphoto.com/vectors/register-account-submit-access-login-password-username-internet-vector-id1281150061?k=20&m=1281150061&s=612x612&w=0&h=wpCvmggedXRECWK-FVL98MMllubyevIrXuUu50fdCqE=" alt="Register" />
         
         <div id = "form">
-        <h1 style={{marginBottom:"30px"}}>Sign Up</h1>
+        <h1 style={{marginBottom:"30px", fontWeight:'bold'}}>Sign Up</h1>
 
         <div className="formElement">
           <label htmlFor='name'>
