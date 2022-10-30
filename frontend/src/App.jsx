@@ -11,9 +11,11 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element= {<><Navbar current="register"/><Form/></>} />
-        <Route path='/register' element= {<><Navbar current="register"/><Form/></>} />
-        <Route path='/welcome' element={<><Navbar current='welcome'/><Welcome /></>} />
+        <Route path='/home' element={<><Navbar current='home'/><Welcome /></>} />
+        <Route path='/about' element={<><Navbar current='about'/><Welcome /></>} />
+        <Route path='/contact' element={<><Navbar current='contact'/><Welcome /></>} />
         <Route path='/login' element={<><Navbar current='login'/><Login /></>} />
+        <Route path='/register' element= {<><Navbar current="register"/><Form/></>} />
       </Routes>
     </Router>
   );

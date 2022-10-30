@@ -72,26 +72,37 @@
 .carasoulLink{
   margin-top: 30px;
   position: relative;
-  text-align: center;
   display: flex;
   flex-wrap: wrap;
   width: 350px;
-  align-items: center;
-  justify-content: center;
   border: 2px solid black;
 }
 
 .carasoulLink img{
   height: 320px;
+  display: block;
+  width: 100%;
 }
 
 .LinkOverText{
   position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.6);
   font-size: 25px;
-  padding: 10px;
-  top: 40;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.2s;
 }
 
-.carasoulLink :hover{
-  display: none;
+.LinkOverText:hover{
+  opacity: 1;
 }
