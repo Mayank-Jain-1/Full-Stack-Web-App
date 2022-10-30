@@ -100,9 +100,19 @@
   font-size: 25px;
   color: white;
   opacity: 0;
-  transition: opacity 0.2s;
+  transition: opacity 0.25s;
 }
+
+.LinkOverText > *{
+  transform: translateY(40px);
+  transition: transform 0.25s;
+}
+
 
 .LinkOverText:hover{
   opacity: 1;
+}
+
+.LinkOverText:hover > *{
+  transform: translateY(0px);
 }
