@@ -41,3 +41,57 @@
   }
 }
 
+.Welcome{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: calc(100vh - 115px);
+  background: linear-gradient(
+    to right,
+    pink 0%,
+    pink 20%,
+    paleturquoise 80%,
+    paleturquoise 100%
+  );
+}
+
+#whatsNew{
+  padding-top: 100px;
+  padding-bottom: 50px;
+  background-color: white;
+}
+
+.carasoul{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.carasoulLink{
+  margin-top: 30px;
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  width: 350px;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid black;
+}
+
+.carasoulLink img{
+  height: 320px;
+}
+
+.LinkOverText{
+  position: absolute;
+  font-size: 25px;
+  padding: 10px;
+  top: 40;
+}
+
+.carasoulLink :hover{
+  display: none;
+}
