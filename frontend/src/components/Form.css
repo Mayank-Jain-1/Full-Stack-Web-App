@@ -5,7 +5,8 @@
 #page{
   display: flex;
   justify-content: center;
-  padding: 100px 0px;
+  height: calc(100vh - 115px);
+  align-items: center;
   background: linear-gradient(
     to right,
     pink 0%,

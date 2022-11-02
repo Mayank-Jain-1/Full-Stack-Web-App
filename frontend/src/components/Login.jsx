@@ -44,7 +44,7 @@ const Login = () => {
 
 
   return (
-    <div style={{display:"flex",justifyContent:"center"}}>
+    <div id= "login-page">
       <div id='login-window'>
         <form action="POST" id="login-form">
           <h1 style={{marginBottom:"20px", fontWeight:'bold'}}>Login</h1>
