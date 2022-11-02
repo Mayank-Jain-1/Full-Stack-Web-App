@@ -5,10 +5,18 @@
 #page{
   display: flex;
   justify-content: center;
-  margin-top: 200px;
+  padding: 100px 0px;
+  background: linear-gradient(
+    to right,
+    pink 0%,
+    pink 20%,
+    paleturquoise 80%,
+    paleturquoise 100%
+  );
 }
 
 #form-box {
+  background-color: white;
   box-shadow: 0 3px 30px rgb(0 0 0 / 0.2);
   display: flex;
   width: 750px;

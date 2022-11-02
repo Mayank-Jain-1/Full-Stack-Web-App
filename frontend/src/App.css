@@ -63,13 +63,13 @@
   background-color: white;
 }
 
-.carasoul{
+.carousel{
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
 }
 
-.carasoulLink{
+.carouselLink{
   margin-top: 30px;
   position: relative;
   display: flex;
@@ -79,11 +79,11 @@
   border-radius: 20px;
 }
 
-.carasoulLink > *{
+.carouselLink > *{
   border-radius: 18px;
 }
 
-.carasoulLink img{
+.carouselLink img{
   width: 100%;
 }
 
