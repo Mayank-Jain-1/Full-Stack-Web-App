@@ -33,7 +33,7 @@ const Login = () => {
 
     const data = await res.json();
     console.log(data);
-    if (data.statusCode == 200){
+    if (data.statusCode === 200){
       navigate('/welcome')
     }
 

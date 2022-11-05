@@ -27,23 +27,29 @@
 .navigationlist{
   display: flex;
   margin: 0;
-  padding-right: 10px;
+  padding-right: 20px;
 }
 
 .navigationLink{
-  list-style: none;
-  /* background-color: transparent; */
+  color: rgb(95, 95, 95);
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  padding-left: 30px;
+  padding: 10px 20px;
   height: 60px;
   border: none;
   background-color: transparent;
 }
 
-.navigationLink :hover{
+.navigationLink:hover{
   background-color: #79b8fb;
   color: white !important;
   border-radius: 4px;
 }
 
+
+/* 
 .navigation a{
   color: rgb(95, 95, 95);
   font-family:Arial, Helvetica, sans-serif;
@@ -53,4 +59,4 @@
   border: none;
   padding: 20px;
   text-decoration: none;
-}
+} */

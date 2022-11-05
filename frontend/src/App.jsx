@@ -10,9 +10,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/' element= {<><Navbar current="Register"/><Form/></>} />
-        <Route path='/welcome' element={<><Navbar current='Home'/><Welcome /></>} />
-        <Route path='/login' element={<><Navbar current='Login'/><Login /></>} />
+        <Route path='/' element= {<><Navbar current="register"/><Form/></>} />
+        <Route path='/register' element= {<><Navbar current="register"/><Form/></>} />
+        <Route path='/welcome' element={<><Navbar current='welcome'/><Welcome /></>} />
+        <Route path='/login' element={<><Navbar current='login'/><Login /></>} />
       </Routes>
     </Router>
   );

@@ -1,8 +1,15 @@
 import React from 'react'
 import './Navbar.css'
+import { useNavigate } from 'react-router-dom'
 
 const Navbar = (props) => {
   
+  const navigate = useNavigate();
+
+  const navigateTo = (e) => {
+    const destination = e.target.value;
+    navigate(`/${destination.toLowerCase()}`);
+  }
 
   return (
     <>
@@ -14,11 +21,18 @@ const Navbar = (props) => {
       </div>
       <div className="navigation">
         <ul className="navigationlist">
-          <button id='home-link' className="navigationLink"><a style={{color: props.current === "Home" ? "#79b8fb" : "gray"}}>Home</a></button>
-          <button id='about-link' className="navigationLink"><a style={{color: props.current === "About" ? "#79b8fb" : "gray" }}>About</a></button>
-          <button id='contact-link' className="navigationLink"><a style={{color: props.current === "Contact" ? "#79b8fb" : "gray" }}>Contact</a> </button>
-          <button id='login-link' className="navigationLink"><a style={{color: props.current === "Login" ? "#79b8fb" : "gray" }}>Login</a></button>
-          <button id='register-link' className="navigationLink"><a style={{color: props.current === "Register" ? "#79b8fb" : "gray" }}>Register</a></button>
+          {/* <button name='home' onClick={navigateTo} id='home-link' className="navigationLink"><a style={{color: props.current === "Home" ? "#79b8fb" : "gray"}}>Home</a></button>
+          <button name='about' onClick={navigateTo} id='about-link' className="navigationLink" ><a style={{color: props.current === "About" ? "#79b8fb" : "gray" }}>About</a></button>
+          <button name='contact' onClick={navigateTo} id='contact-link' className="navigationLink"><a style={{color: props.current === "Contact" ? "#79b8fb" : "gray" }}>Contact</a> </button>
+          <button name='login' onClick={navigateTo} id='login-link' className="navigationLink"><a style={{color: props.current === "Login" ? "#79b8fb" : "gray" }}>Login</a></button>
+          <button name='register' onClick={navigateTo} id='register-link' className="navigationLink"><a style={{color: props.current === "Register" ? "#79b8fb" : "gray" }}>Register</a></button> */}
+
+
+          <input type="submit" className='navigationLink' style={{color: props.current === "home" ? "#79b8fb" : "gray" }} value="Home"onClick={navigateTo}/>
+          <input type="submit" className='navigationLink' style={{color: props.current === "about" ? "#79b8fb" : "gray" }} value="About" onClick={navigateTo}/>
+          <input type="submit" className='navigationLink' style={{color: props.current === "contact" ? "#79b8fb" : "gray" }} value="Contact" onClick={navigateTo}/>
+          <input type="submit" className='navigationLink' style={{color: props.current === "login" ? "#79b8fb" : "gray" }} value="Login" onClick={navigateTo}/>
+          <input type="submit" className='navigationLink' style={{color: props.current === "register" ? "#79b8fb" : "gray" }} value="Register" onClick={navigateTo}/>
         </ul>
       </div>
     </div>
