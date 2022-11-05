@@ -32,6 +32,16 @@
 
 .navigationLink{
   list-style: none;
+  /* background-color: transparent; */
+  height: 60px;
+  border: none;
+  background-color: transparent;
+}
+
+.navigationLink :hover{
+  background-color: #79b8fb;
+  color: white !important;
+  border-radius: 4px;
 }
 
 .navigation a{

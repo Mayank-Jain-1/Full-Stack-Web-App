@@ -14,11 +14,11 @@ const Navbar = (props) => {
       </div>
       <div className="navigation">
         <ul className="navigationlist">
-          <li id='home-link' className="navigationLink"><a style={{color: props.current === "Home" ? "#79b8fb" : "gray"}}>Home</a></li>
-          <li id='about-link' className="navigationLink"><a style={{color: props.current === "About" ? "#79b8fb" : "gray" }}>About</a></li>
-          <li id='contact-link' className="navigationLink"><a style={{color: props.current === "Contact" ? "#79b8fb" : "gray" }}>Contact</a> </li>
-          <li id='login-link' className="navigationLink"><a style={{color: props.current === "Login" ? "#79b8fb" : "gray" }}>Login</a></li>
-          <li id='register-link' className="navigationLink"><a style={{color: props.current === "Register" ? "#79b8fb" : "gray" }}>Register</a></li>
+          <button id='home-link' className="navigationLink"><a style={{color: props.current === "Home" ? "#79b8fb" : "gray"}}>Home</a></button>
+          <button id='about-link' className="navigationLink"><a style={{color: props.current === "About" ? "#79b8fb" : "gray" }}>About</a></button>
+          <button id='contact-link' className="navigationLink"><a style={{color: props.current === "Contact" ? "#79b8fb" : "gray" }}>Contact</a> </button>
+          <button id='login-link' className="navigationLink"><a style={{color: props.current === "Login" ? "#79b8fb" : "gray" }}>Login</a></button>
+          <button id='register-link' className="navigationLink"><a style={{color: props.current === "Register" ? "#79b8fb" : "gray" }}>Register</a></button>
         </ul>
       </div>
     </div>
