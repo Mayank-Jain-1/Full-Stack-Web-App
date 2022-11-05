@@ -8,27 +8,26 @@ router.get('/',  (req,res) => {
   res.send('Home');
 });
 
-router.get('/signup', (req,res) => {
-  res.send('signup');
-});
 
 router.get('/welcome', (req,res) => {
   res.send('welcome');
 });
 
 
-router.post('/signin' , async (req,res) => {
+router.post('/login' , async (req,res) => {
   try {
     const {email, password} = req.body;
     
     if (!email || !password) {
-      return res.status(400).json({error: "Please enter the email/password" , statusCode:res.statusCode});
+      return res.status(200).json({error: "Please enter the email/password" , statusCode:res.statusCode});
     }
 
     const userLogin = await User.findOne({ email:email });
-    userLogin ? res.json({message: "user login successful", statusCode:res.statusCode})
-              : res.json({message: "user doesnt exitst", statusCode:res.statusCode});
-
+    if (userLogin) {
+      res.json({message: "user login successful", statusCode:res.statusCode});
+    }else{
+      res.json({message: "user doesnt exitst", statusCode:res.statusCode});
+    }
   } catch (err) {
     console.log(err);
   }

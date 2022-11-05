@@ -1,9 +1,12 @@
 import React from 'react'
 import { useState } from 'react'
 import './Login.css'
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
   
+  const navigate = useNavigate();
+
   const [loginInformation, setLoginInformation] = useState({
     email:'',
     password: ''
@@ -14,6 +17,27 @@ const Login = () => {
     const value = e.target.value;
     setLoginInformation({...loginInformation, [name]:value})
     console.log(loginInformation);
+  }
+
+  const postLoginData = async (e) => {
+    e.preventDefault();
+    console.log(1);
+    const {email, password} = loginInformation;
+    const res = await fetch('/login', {
+      method: 'POST',
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify({email, password})
+    });
+
+    const data = await res.json();
+    console.log(data);
+    if (data.statusCode == 200){
+      navigate('/welcome')
+    }
+
+
   }
 
 
@@ -34,7 +58,8 @@ const Login = () => {
           </div>
 
           <div className="form-group form-button">
-          <input  type="submit" name='login' id='loginButton' value='Login'/>
+          <input type="submit" name='login' id='loginButton' value='Login'
+          onClick={postLoginData}/>
           </div>
 
         </form>
