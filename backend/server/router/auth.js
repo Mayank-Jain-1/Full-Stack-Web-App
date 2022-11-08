@@ -19,14 +19,14 @@ router.post('/login' , async (req,res) => {
     const {email, password} = req.body;
     
     if (!email || !password) {
-      return res.status(200).json({error: "Please enter the email/password" , statusCode:res.statusCode});
+      return res.status(401).json({error: "Please enter the email/password" , statusCode:res.statusCode});
     }
 
     const userLogin = await User.findOne({ email:email });
     if (userLogin) {
-      res.json({message: "user login successful", statusCode:res.statusCode});
+      res.status(200).json({message: "user login successful", statusCode:res.statusCode});
     }else{
-      res.json({message: "user doesnt exitst", statusCode:res.statusCode});
+      res.status(402).json({message: "user doesnt exitst", statusCode:res.statusCode});
     }
   } catch (err) {
     console.log(err);
@@ -37,7 +37,6 @@ router.post('/register', async (req,res) => {
   const {fullname, email, password, cpassword, dob, gender } = req.body;
   
   if(!fullname  || !email || !password || !cpassword || !dob || !gender) {
-    console.log(req.body);
     return res.status(422).json({data: req.body,  error: "Plz fill all the fields properly", statusCode:res.statusCode})
   }
   

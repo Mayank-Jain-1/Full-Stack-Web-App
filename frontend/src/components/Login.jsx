@@ -35,6 +35,8 @@ const Login = () => {
     console.log(data);
     if (data.statusCode === 200){
       navigate('/welcome')
+    }else {
+      window.alert("Either the email or password is not correct!")
     }
 
 

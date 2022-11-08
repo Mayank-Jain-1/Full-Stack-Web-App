@@ -37,11 +37,9 @@ export const Form = () => {
     const data = await res.json();       
   if(data.statusCode !== 201) {
       window.alert("Registration Failed. Try again");
-      console.log('Registration Failed. Try again');
-      navigate('/login');
     } else {
       window.alert("Registration Successful");
-      console.log("Registration Successful");
+      navigate('/login');
     }
   }
   
