@@ -3,6 +3,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: auto;
-  width: 400px;
+  width: 100vw;
+  height: calc(100vh - 115px);
+  background: linear-gradient(
+    to right,
+    pink 0%,
+    pink 20%,
+    paleturquoise 80%,
+    paleturquoise 100%
+  );
+}
+
+#whatsNew{
+  background-color: aqua;
 }
